@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{memo} from 'react'
 
 const Child = ({childCounter,handleOnClickChild}) => {
     console.log("This is child component")
@@ -10,4 +10,5 @@ const Child = ({childCounter,handleOnClickChild}) => {
   )
 }
 
-export default Child;
+// To prevent from  re-rendering we use React.memo()  ,, now it will re-render only if some changes occured in this component;
+export default memo(Child);
