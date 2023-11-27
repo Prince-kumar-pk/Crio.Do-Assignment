@@ -12,12 +12,15 @@ const Parent = () => {
     }
 
     // function that will be called from the child component
-    const handleOnClickChild =()=>{
+    // const handleOnClickChild =()=>{
+    //     setChildCounter(childCounter + 1);
+    // }
+    
+    //Use useCallback() Hook to prevent from unnecessary re-creating the callback function so that it not re-render the child component as this function only work when the state 'chilsCounter' change ;
+    const handleOnClickChild = useCallback(()=>{
         setChildCounter(childCounter + 1);
-    }
+    },[childCounter]);
 
-    
-    
     return (
         <div>
             <Child childCounter={childCounter} handleOnClickChild={handleOnClickChild} />
